@@ -1,0 +1,45 @@
+'name': 'Tree'
+'fileTypes': [
+  'tree'
+]
+'scopeName': 'source.tree'
+'patterns': [
+  {
+    'include': '#line'
+  }
+]
+'repository':
+  'line':
+    'begin': '^\t*'
+    'beginCaptures':
+      '0':
+        'name': 'indentation.tree'
+    'end': '\\n'
+    'endCaptures':
+      '0':
+        'name': 'end-of-line.tree'
+    'name': 'meta.structure.list.tree'
+    'patterns': [
+      {
+        'include': '#data'
+      }
+      {
+        'include': '#punctuation'
+      }
+      {
+        'include': '#structure'
+      }
+      {
+        'match': ' +'
+        'name': 'separator.tree'
+      }
+    ]
+  'punctuation':
+    'match': '[-`~!@#$%\\^&*()_=+\\\\|/?"\';:{}\\[\\]<>,.]+'
+    'name': 'punctuation.tree'
+  'structure':
+    'match': '[^ \\t\\n=]+'
+    'name': 'structure.tree'
+  'data':
+    'match': '=[^\\n]*'
+    'name': 'data.tree'
