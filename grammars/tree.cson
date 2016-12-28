@@ -13,18 +13,21 @@
     'begin': '^\t*'
     'beginCaptures':
       '0':
-        'name': 'indentation.tree'
+        'name': 'tree.indentation'
     'end': '\\n'
     'endCaptures':
       '0':
-        'name': 'end-of-line.tree'
-    'name': 'meta.structure.list.tree'
+        'name': 'tree.end-of-line'
+    'name': 'tree.meta.structure.list'
     'patterns': [
       {
         'include': '#data'
       }
       {
         'include': '#punctuation'
+      }
+      {
+        'include': '#keyword'
       }
       {
         'include': '#structure'
@@ -35,11 +38,19 @@
       }
     ]
   'punctuation':
-    'match': '[-`~!@#$%\\^&*()_=+\\\\|/?"\';:{}\\[\\]<>,.]+'
-    'name': 'punctuation.tree'
+    'match': '[-`~!@#$%\\^&*()_=+\\\\|/?"\';:{}\\[\\]<>,.]+(?![^ \\t\\n\\\\])'
+    'name': 'tree.structure.entity.name.function'
+  'keyword':
+    'match': '[-`~!@#$%\\^&*()_=+\\\\|/?"\';:{}\\[\\]<>,.][^ \\t\\n\\\\]+'
+    'name': 'tree.entity.name.class'
   'structure':
     'match': '[^ \\t\\n\\\\]+'
-    'name': 'structure.tree'
+    'name': 'tree.structure.entity.name.variable'
+    'patterns': [
+      {
+        'include': '#punctuation'
+      }
+    ]
   'data':
     'match': '\\\\[^\\n]*'
-    'name': 'data.tree'
+    'name': 'tree.string.data'
