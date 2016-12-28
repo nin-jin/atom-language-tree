@@ -38,8 +38,8 @@
     'match': '[-`~!@#$%\\^&*()_=+\\\\|/?"\';:{}\\[\\]<>,.]+'
     'name': 'punctuation.tree'
   'structure':
-    'match': '[^ \\t\\n=]+'
+    'match': '[^ \\t\\n\\\\]+'
     'name': 'structure.tree'
   'data':
-    'match': '=[^\\n]*'
+    'match': '\\\\[^\\n]*'
     'name': 'data.tree'
